@@ -175,7 +175,7 @@ public class Geocode {
     }
 
     private static class OSMSupplier implements GeocodeSupplier {
-        public static final String OSM_URL = "https://nominatim.openstreetmap.org";
+        public static final String OSM_URL = "https://nominatim.OpenStreetMap.org";
 
         private static final String OSM_URL_REVERSE_GEOCODE = OSM_URL + "/reverse?format=jsonv2&";
         private static final String OSM_URL_GEOCODE = OSM_URL + "/search.php?format=json&q=";
