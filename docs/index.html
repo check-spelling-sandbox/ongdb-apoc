@@ -2178,7 +2178,7 @@ CALL apoc.trigger.add('lowercase-by-label','UNWIND apoc.trigger.nodesByLabel({as
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CALL apoc.spatial.geocode('address') YIELD location, latitude, longitude, description, osmData</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">look up geographic location of location from openstreetmap geocoding service</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">look up geographic location of location from OpenStreetMap geocoding service</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>CALL apoc.spatial.sortPathsByDistance(Collection&lt;Path&gt;) YIELD path, distance</code></p></td>
@@ -5333,11 +5333,11 @@ RETURN status.id, status.text, u.screen_name, [t IN e.hashtags | t.text] as tags
         "21 rue Paul Bellamy 44000 NANTES FRANCE" AS fromAddr,
         "125 rue du docteur guichard 49000 ANGERS FRANCE" AS toAddr
 
-call apoc.load.json("http://www.yournavigation.org/transport.php?url=http://nominatim.openstreetmap.org/search&amp;format=json&amp;q=" + replace(fromAddr, ' ', '%20')) YIELD value AS from
+call apoc.load.json("http://www.yournavigation.org/transport.php?url=http://nominatim.OpenStreetMap.org/search&amp;format=json&amp;q=" + replace(fromAddr, ' ', '%20')) YIELD value AS from
 
 WITH from, toAddr  LIMIT 1
 
-call apoc.load.json("http://www.yournavigation.org/transport.php?url=http://nominatim.openstreetmap.org/search&amp;format=json&amp;q=" + replace(toAddr, ' ', '%20')) YIELD value AS to
+call apoc.load.json("http://www.yournavigation.org/transport.php?url=http://nominatim.OpenStreetMap.org/search&amp;format=json&amp;q=" + replace(toAddr, ' ', '%20')) YIELD value AS to
 
 CALL apoc.load.json("https://router.project-osrm.org/viaroute?instructions=true&amp;alt=true&amp;z=17&amp;loc=" + from.lat + "," + from.lon + "&amp;loc=" + to.lat + "," + to.lon ) YIELD value AS doc
 
